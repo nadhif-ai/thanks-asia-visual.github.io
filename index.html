@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Ucapan Terimakasih - 6 Tahun (2020-2026)</title>
+    <meta name="description" content="Ucapan terima kasih dan kenangan 6 tahun perjalanan kerja bersama rekan-rekan.">
+
+    <!-- ============================================
+         GANTI JUDUL WEBSITE DI ATAS (tag <title>)
+         ============================================ -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- ============================================
+         SCROLL PROGRESS INDICATOR (garis tipis di atas)
+         ============================================ -->
+    <div id="scroll-progress"></div>
+
+    <!-- ============================================
+         TOMBOL AUDIO (opsional, disembunyikan dulu jika belum ada musik)
+         ============================================ -->
+    <button id="audio-toggle" aria-label="Aktifkan musik">🔇</button>
+
+    <main>
+
+        <!-- ============================================
+             SECTION 1 - OPENING / HERO
+             ============================================ -->
+        <section id="hero" class="section">
+            <!-- GANTI BACKGROUND FOTO DI SINI -->
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <p class="hero-eyebrow reveal">Untuk rekan-rekan saya</p>
+                <h1 class="hero-title reveal">Terimakasih Banyak</h1>
+                <h2 class="hero-subtitle reveal">untuk 6 tahun ini (2020-2026)</h2>
+                <p class="hero-desc reveal">
+                    Untuk setiap cerita, bantuan, tawa, dan kebersamaan, terima kasih asia visual, saya mendapatkan banyak insight, pengalaman yang bermanfaat untuk perjalanan berikutnya.
+                </p>
+            </div>
+
+            <div class="scroll-indicator reveal">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 2 - FOTO KEBERSAMAAN (CAROUSEL)
+             ============================================ -->
+        <section id="gallery" class="section">
+            <h2 class="section-title reveal">In Memories</h2>
+            <p class="section-subtitle reveal">Sepenggal momen yang tersimpan</p>
+
+            <!-- GANTI FOTO CAROUSEL DI SINI (lihat script.js -> galleryImages) -->
+            <div class="carousel" id="carousel">
+                <div class="carousel-track" id="carousel-track">
+                    <!-- Slide akan digenerate otomatis oleh script.js dari data galleryImages -->
+                </div>
+
+                <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Foto sebelumnya">‹</button>
+                <button class="carousel-btn carousel-next" id="carousel-next" aria-label="Foto berikutnya">›</button>
+
+                <div class="carousel-dots" id="carousel-dots">
+                    <!-- Dots akan digenerate otomatis -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 3 - KENANGAN DAN TANGGAL (TIMELINE)
+             ============================================ -->
+        <section id="memories" class="section">
+            <h2 class="section-title reveal">Timeline</h2>
+            <p class="section-subtitle reveal">Perjalanan dari tahun ke tahun</p>
+
+            <!-- Timeline akan digenerate otomatis oleh script.js dari data timelineData -->
+            <div class="timeline" id="timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-items" id="timeline-items"></div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 4 - PESAN UNTUK REKAN KERJA
+             ============================================ -->
+        <section id="friends" class="section">
+            <h2 class="section-title reveal">Pesan</h2>
+            <p class="section-subtitle reveal">untuk pribadi yang jadi bagian dari cerita. For Just Fun Not Seriously.</p>
+
+            <!-- Card rekan akan digenerate otomatis oleh script.js dari data friends -->
+            <div class="friends-grid" id="friends-grid"></div>
+        </section>
+
+        <!-- Modal untuk menampilkan pesan lengkap saat card diklik -->
+        <div class="friend-modal" id="friend-modal" aria-hidden="true">
+            <div class="friend-modal-backdrop" id="friend-modal-backdrop"></div>
+            <div class="friend-modal-content">
+                <button class="friend-modal-close" id="friend-modal-close" aria-label="Tutup">×</button>
+                <div class="friend-modal-emoji" id="friend-modal-emoji"></div>
+                <h3 id="friend-modal-name"></h3>
+                <p id="friend-modal-message"></p>
+            </div>
+        </div>
+
+        <!-- ============================================
+             SECTION 5 - MINI GAME (ENDLESS RUNNER)
+             ============================================ -->
+        <section id="game" class="section">
+            <h2 class="section-title reveal">Main Ini Ges</h2>
+            <p class="section-subtitle reveal">Coba dimainkan, barangkali bisa dapat duit kalo beruntung wkwk.</p>
+
+            <div class="game-wrapper reveal">
+                <div class="game-hud">
+                    <span>SCORE: <span id="game-score">0</span></span>
+                    <span>BEST: <span id="game-best">0</span></span>
+                </div>
+
+                <canvas id="game-canvas"></canvas>
+
+                <div class="game-overlay" id="game-overlay">
+                    <p class="game-overlay-title" id="game-overlay-title">Siap berlari?</p>
+                    <p class="game-overlay-desc" id="game-overlay-desc">Tekan SPASI / tap layar untuk melompat</p>
+                    <button class="game-btn" id="game-start-btn">MULAI GAME</button>
+                </div>
+
+                <button class="game-jump-btn" id="game-jump-btn">JUMP</button>
+            </div>
+
+            <!-- Papan skor dummy — data ada di script.js (leaderboardData) -->
+            <div class="leaderboard reveal-up">
+                <p class="leaderboard-title">Eits. Ga ada duit Adanya Doa</p>
+                <ul id="leaderboard-list"></ul>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 6 - CLOSING
+             ============================================ -->
+        <section id="closing" class="section">
+            <div class="closing-content">
+                <p class="closing-line reveal">See you Again.</p>
+                <p class="closing-message reveal">
+                    Terima kasih untuk pengalaman, dan semua orang yang pernah menjadi bagian ini.
+                    Semoga kita semua sukses dengan jalan dan tujuannya masing-masing. Success...
+                </p>
+                <p class="closing-from reveal">Dari Nadhif</p>
+                <p class="closing-to reveal">Untuk Asia Visual Grafika</p>
+
+                <button class="back-to-top" id="back-to-top">↑ Kembali ke Atas</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
